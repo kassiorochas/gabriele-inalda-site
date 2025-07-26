@@ -1,0 +1,404 @@
+/* --- Reset Básico e Fundamentais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Essencial para controle de layout */
+}
+
+/* --- Variáveis CSS: Centralize suas configurações de design aqui --- */
+:root {
+    /* Cores atualizadas para a tendência de móveis planejados */
+    --primary-color: #0077cc; /* Azul para destaque de links e botões (contraste) */
+    --secondary-color: #333; /* Cor principal para textos e elementos */
+    --accent-color-whatsapp: #25D366; /* Verde do WhatsApp */
+
+    /* Novas cores de fundo para a tendência de tons neutros quentes */
+    --light-neutral-bg: #F8F5F0; /* Um off-white/bege muito claro e suave (quase um creme) */
+    --medium-neutral-bg: #EAE6DF; /* Um tom de bege/areia levemente mais escuro */
+    --dark-neutral-bg: #D9D5CD; /* Um tom mais terroso ou cinza-bege para alternar */
+    --white-bg: #fff; /* Mantém o branco puro para cards internos e contrastes pontuais */
+    --border-color: #ddd; /* Cor de borda suave */
+    
+    /* Cores de texto */
+    --text-color-dark: #333;
+    --text-color-light: #777;
+
+    /* Cores para o Hero */
+    --hero-bg-overlay: rgba(0,0,0,0.4);
+
+    /* Sombras */
+    --shadow-light: 0 2px 8px rgba(0,0,0,0.08); /* Sombra sutil */
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.1); /* Sombra um pouco mais forte */
+    --shadow-strong: 0 6px 16px rgba(0,0,0,0.15); /* Sombra para hover */
+
+    /* Fontes */
+    --primary-font: 'Inter', sans-serif; /* Fonte para o corpo do texto */
+    --secondary-font: 'Playfair Display', serif; /* Fonte para títulos */
+
+    /* Espaçamento */
+    --padding-section: 3rem 1.5rem; /* Padding padrão para seções */
+    --gap-elements-sm: 1rem; /* Espaçamento pequeno */
+    --gap-elements-md: 1.5rem; /* Espaçamento médio */
+    --gap-elements-lg: 2rem; /* Espaçamento grande */
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--light-neutral-bg); /* Fundo da página com o off-white/creme */
+    color: var(--text-color-dark);
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    scroll-behavior: smooth; /* Anima a rolagem para âncoras */
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--white-bg); /* Mantém o header branco para clareza e contraste com a logo */
+    padding: 0.8rem 2rem; /* Reduz o padding vertical para compactar */
+    display: flex;
+    flex-direction: row; /* Padrão em linha para desktop */
+    justify-content: space-between; /* Distribui logo, título e nav */
+    align-items: center; /* Alinha verticalmente os itens */
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+    position: sticky; /* Fixa o cabeçalho no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Garante que o header ocupe a largura total */
+}
+
+.logo img {
+    max-width: 80px; /* Diminui o tamanho da logo */
+    margin-bottom: 0; /* Remove margem inferior para alinhamento horizontal */
+}
+
+header h1 {
+    font-family: var(--secondary-font);
+    font-size: 1.8rem; /* Diminui o tamanho do título principal */
+    margin: 0 1rem; /* Pequena margem lateral */
+    margin-right: auto; /* Empurra o título para a esquerda e a nav para a direita */
+    line-height: 1.2;
+    color: var(--secondary-color);
+    text-align: left; /* Garante alinhamento esquerdo mesmo em quebra de linha */
+}
+
+.subtitulo {
+    font-size: 0.8rem; /* Diminui o subtítulo */
+    color: var(--text-color-light);
+    display: block; /* Garante que o span fique em sua própria linha */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Reduz o espaço entre os itens de navegação */
+    margin-top: 0; /* Remove margem superior em desktop */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 0.4rem 0.8rem; /* Reduz um pouco o padding dos links */
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 119, 204, 0.05); /* RGBA do primary-color com 5% de opacidade */
+    transform: translateY(-2px);
+}
+
+
+/* --- Seção Hero --- */
+#hero {
+    /* Alterado de .jpg para .png */
+    background: linear-gradient(var(--hero-bg-overlay), var(--hero-bg-overlay)), url('img/bg-planejados.png') center/cover no-repeat fixed;
+    text-align: center;
+    padding: 6rem 1.5rem;
+    color: var(--white-bg); /* Texto branco no hero */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#hero h2 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    margin-bottom: var(--gap-elements-md);
+    color: var(--white-bg);
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: var(--gap-elements-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-whatsapp {
+    background-color: var(--accent-color-whatsapp);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe5d; /* Tom um pouco mais escuro no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+
+/* --- Estilos Genéricos para Seções de Conteúdo --- */
+section {
+    padding: var(--padding-section);
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+
+    /* Animação ao aparecer as seções (combinado com JS) */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-family: var(--secondary-font);
+    font-size: 2.5rem;
+    margin-bottom: var(--gap-elements-lg);
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* --- Cores de Fundo Alternadas para as Seções (Novas Tendências) --- */
+#sobre {
+    background-color: var(--medium-neutral-bg); /* Tom de bege/areia */
+}
+
+#portfolio {
+    background-color: var(--light-neutral-bg); /* Off-white/creme */
+}
+
+#servicos {
+    background-color: var(--medium-neutral-bg); /* Tom de bege/areia */
+}
+
+#contato {
+    background-color: var(--light-neutral-bg); /* Off-white/creme */
+}
+
+
+/* --- Seção Serviços (Lista) --- */
+#servicos ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-elements-md);
+    margin-top: var(--gap-elements-lg);
+    text-align: left; /* Alinha o texto da lista à esquerda */
+}
+
+#servicos li {
+    background-color: var(--white-bg); /* Cards internos em branco para destaque */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#servicos li:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+}
+
+
+/* --- Seção Portfólio (Galeria) --- */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-elements-md);
+    margin-top: var(--gap-elements-lg);
+}
+
+.galeria img {
+    width: 100%;
+    height: 200px; /* Altura fixa para consistência */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-strong);
+}
+
+
+/* --- Seção Contato --- */
+#contato p strong {
+    color: var(--primary-color); /* Destaca o telefone/e-mail */
+}
+
+#contato a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#contato a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--dark-neutral-bg); /* Fundo do footer com tom mais terroso/cinza-bege */
+    font-size: 0.95rem;
+    color: var(--text-color-dark);
+    margin-top: var(--gap-elements-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Marca D'água no Fundo (Efeito Sutil) --- */
+.marca-dagua {
+    position: fixed;
+    bottom: 5%;
+    right: -5%;
+    font-size: 6rem;
+    opacity: 0.04;
+    transform: rotate(-30deg);
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: var(--secondary-font);
+    z-index: -1;
+    color: rgba(0, 0, 0, 0.08); /* Cor discreta e transparente */
+    text-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+    /* Header em coluna para mobile */
+    header {
+        flex-direction: column;
+        padding: 1rem 1rem;
+        text-align: center;
+    }
+    .logo img {
+        max-width: 90px;
+        margin-bottom: 0.8rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        text-align: center;
+    }
+    .subtitulo {
+        font-size: 0.9rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    nav a {
+        padding: 0.3rem 0.6rem;
+    }
+
+    /* Outras seções */
+    #hero {
+        padding: 4rem 1rem;
+    }
+    #hero h2 {
+        font-size: 2.2rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+    .btn-whatsapp {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+    section {
+        padding: 2rem 1rem;
+    }
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: var(--gap-elements-md);
+    }
+    section h2::after {
+        width: 60px;
+        height: 3px;
+    }
+    #servicos ul,
+    .galeria {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: var(--gap-elements-sm);
+    }
+    .galeria img {
+        height: 220px;
+    }
+    footer {
+        padding: 1.5rem 0.8rem;
+    }
+    .marca-dagua {
+        font-size: 3rem;
+        right: -10%;
+        bottom: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    .subtitulo {
+        font-size: 0.8rem;
+    }
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+    #hero p {
+        font-size: 0.95rem;
+    }
+    section h2 {
+        font-size: 1.8rem;
+    }
+    .marca-dagua {
+        font-size: 2.5rem;
+        right: -15%;
+    }
+}
